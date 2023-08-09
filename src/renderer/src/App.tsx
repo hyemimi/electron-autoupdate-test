@@ -12,7 +12,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <Sample />
+      fsddsfd
     </div>
   );
 };

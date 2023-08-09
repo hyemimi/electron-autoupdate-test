@@ -62,6 +62,36 @@ app.whenReady().then(() => {
 
   autoUpdater.checkForUpdatesAndNotify();// 업데이트 체크
 
+  autoUpdater.on('checking-for-update', () => {
+    console.log('Checking for update...');
+  });
+
+  autoUpdater.on('update-available', (info) => {
+    console.log('Update available:', info);
+  });
+
+  autoUpdater.on('update-not-available', () => {
+    console.log('No update available.');
+  });
+
+  autoUpdater.on('error', (err) => {
+    console.error('Error in auto-updater:', err);
+  });
+
+  autoUpdater.on('download-progress', (progressObj) => {
+    console.log(`Download speed: ${progressObj.bytesPerSecond}`);
+    console.log(`Downloaded ${progressObj.percent}%`);
+    console.log(`Total downloaded: ${progressObj.transferred}/${progressObj.total}`);
+  });
+
+  autoUpdater.on('update-downloaded', (info) => {
+    console.log('Update downloaded:', info);
+
+    // 업데이트 설치 여부를 묻는 다이얼로그 또는 자동 업데이트를 선택하여 업데이트 수행
+    autoUpdater.quitAndInstall();
+  });
+  autoUpdater.checkForUpdatesAndNotify();
+
   app.on('activate', () => {
    
     if (BrowserWindow.getAllWindows().length === 0) createWindow();
