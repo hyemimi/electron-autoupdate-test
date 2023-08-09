@@ -1,0 +1,49 @@
+{
+  "name": "electron-vite-template",
+  "version": "1.0.3",
+  "description": "An Electron application with React and TypeScript",
+  "main": "./out/main/index.js",
+  "author": "nineright",
+  "homepage": ".",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/hhyemi/vite-electron",
+    "release": "latest"
+  },
+  "scripts": {
+    "start": "electron-vite preview",
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "postinstall": "electron-builder install-app-deps",
+    "build:win": "npm run build && electron-builder --win --config",
+    "build:mac": "electron-vite build && electron-builder --mac --config",
+    "build:linux": "electron-vite build && electron-builder --linux --config"
+  },
+  "dependencies": {
+    "@electron-toolkit/preload": "^2.0.0",
+    "@electron-toolkit/utils": "^1.0.2",
+    "electron-updater": "^5.3.0",
+    "path": "^0.12.7",
+    "sass": "^1.64.2",
+    "vite-electron-plugin": "^0.8.2"
+  },
+  "devDependencies": {
+    "@electron-toolkit/tsconfig": "^1.0.1",
+    "@electron/notarize": "^1.2.3",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "electron": "^24.6.2",
+    "electron-builder": "^23.6.0",
+    "electron-vite": "^1.0.25",
+    "eslint": "^8.44.0",
+    "eslint-plugin-react": "^7.32.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.2",
+    "vite-plugin-electron-renderer": "^0.14.5"
+  }
+}

@@ -1,0 +1,19 @@
+stages:
+  - build
+  - deploy
+
+  
+build:
+  image: node:16.13.1
+  stage: build
+  only:
+    - main
+  script:
+    - npm install
+    - npm build:win
+
+  artifacts:
+    paths:
+      - dist/*.*
+  tags:
+    - hyemi
